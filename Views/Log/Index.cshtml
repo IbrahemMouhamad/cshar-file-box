@@ -1,0 +1,29 @@
+@model IEnumerable<file_box.Models.Actionlog>
+
+@{
+    ViewBag.Title = "All Logs";
+}
+<div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table table-bordered table-hover">  
+                <tr>
+                    <th>ID</th>  
+                    <th>Username</th>
+                    <th>IP</th>
+                    <th>Time</th>
+                    <th>Message</th>  
+                </tr>  
+                @foreach (var log in Model)  
+                {  
+                    <tr>  
+                        <td>@log.Id</td>
+                        <td>@log.User</td>
+                        <td>@log.UserRemote</td>
+                        <td>@DateTimeOffset.FromUnixTimeSeconds(log.Time).ToString("g")</td>
+                        <td>@log.Message</td>  
+                    </tr> 
+                }  
+            </table>  
+        </div>
+</div>

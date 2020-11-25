@@ -1,0 +1,41 @@
+
+@{
+    ViewBag.Title = "Add File";
+}
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-9">
+        <div class="card border border-primary">
+            <div class="card-header">
+                Add new File
+            </div>
+            @using (Html.BeginForm("Create", "File", FormMethod.Post, new { enctype="multipart/form-data"}))
+            {
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="title" class="col-sm-2 col-form-label">Title*:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" required name="title" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="description" class="col-sm-2 col-form-label">Description*:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" required name="description" ></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="file" class="col-sm-2 col-form-label">File*:</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" required name="file" />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer pull-right">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
